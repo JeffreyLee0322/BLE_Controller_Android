@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.a24g_adv.MainActivity">
+
+    <TextView
+        android:text="Broadcast BLE Advertisement:"
+        android:textStyle="bold"
+        android:textColor="#000081"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/data_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advertise Data:"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"/>
+
+        <EditText
+            android:id="@+id/advertise_data"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="0-255"
+            android:textSize="12sp"
+            android:padding="0dp"
+            android:background="@null"
+            android:gravity="center"
+            android:text="255"
+            android:textColor="#000000"
+            android:layout_alignBottom="@+id/data_header"
+            android:layout_alignLeft="@+id/advertise_interval" />
+
+        <TextView
+            android:id="@+id/interval_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/data_header"
+            android:layout_marginTop="5dp"
+            android:text="Advertise Interval:"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/advertise_interval"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:padding="0dp"
+            android:background="@null"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:text="1000"
+            android:layout_alignBottom="@+id/interval_header"
+            android:layout_toRightOf="@+id/interval_header"/>
+
+        <TextView
+            android:id="@+id/time_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advertise Time:"
+            android:layout_below="@+id/interval_header"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"/>
+
+        <EditText
+            android:id="@+id/advertise_time"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:background="@null"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:text="100"
+            android:layout_alignBottom="@+id/time_header"
+            android:layout_alignLeft="@+id/advertise_interval"/>
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="0.5dp"
+            android:background="#222222"
+            android:layout_alignLeft="@+id/advertise_data"
+            android:layout_below="@+id/advertise_data"/>
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="0.5dp"
+            android:background="#222222"
+            android:layout_alignLeft="@+id/advertise_interval"
+            android:layout_below="@+id/advertise_interval"/>
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="0.5dp"
+            android:background="#222222"
+            android:layout_alignLeft="@+id/advertise_time"
+            android:layout_below="@+id/advertise_time"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/Send_btn"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="对码"
+        android:onClick="onSendBtnData"
+         />
+
+    <Button
+        android:id="@+id/Send_on_btn"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="前进"
+        android:onClick="onSendBtnData"
+        />
+    <Button
+        android:id="@+id/Send_ble_test__btn"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="BLE GO"
+        android:onClick="onSendBtnData"
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/Send_btn_0"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="对码"
+            android:onClick="onSendBtnData"
+            />
+
+        <Button
+            android:id="@+id/Send_on_btn_1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="前进"
+            android:onClick="onSendBtnData"
+            />
+        <Button
+            android:id="@+id/Send_red_btn_2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="红色"
+            />
+    </LinearLayout>
+    <Switch
+        android:text="Enable Advertising: "
+        android:id="@+id/switchID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:layout_marginTop="5dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Advertised Time:"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/advertised_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv"
+        android:text="Ready to advertise."
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:text="Receive BLE Advertisement:"
+        android:textStyle="bold"
+        android:textColor="#000081"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"/>
+
+    <Switch
+        android:text="Enable Receiving: "
+        android:id="@+id/switchIDR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        />
+
+    <TextView
+        android:id="@+id/tvr"
+        android:text="Ready to receive."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
